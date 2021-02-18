@@ -17,35 +17,23 @@ function createListOfObjects(data) {
   var listOfObjects = [];
   var a={
     name:null,
-    
-  }
-  var b={
-    
     category:null,
-   
-  }
-  var c=
-  {
+   isEdible:null,
+   price:0
     
-    isEdible:null,
-  
   }
-  var d=
-  {
   
-    price:0
-  }
-
   for(var i=0;i<data.length;i++)
   {
-    a.d1= data[i][1];
-    b.d2=data[i][2];
-    c.d3=data[i][3];
-    d.d4=data[i][4];
-
+    a.name= data[i][0];
+    a.category=data[i][1];
+    a.isEdible=data[i][2];
+    a.price=data[i][3];
+    listOfObjects[i]=a;
   //var a=['apple','Lays','Pen','Book','Banana','Peanut Butter','Oven','Air Conditioner','Drill'];
 }
 console.log(a[1]);
+return listOfObjects(a);
 
 }
 
