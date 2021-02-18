@@ -32,13 +32,22 @@ function createListOfObjects(data) {
     listOfObjects[i]=a;
   //var a=['apple','Lays','Pen','Book','Banana','Peanut Butter','Oven','Air Conditioner','Drill'];
 }
-console.log(a[1]);
-return listOfObjects(a);
+console.log(listOfObjects);
+
 
 }
 
+
+createListOfObjects(data);
+
 //sort by given parameter. sorting Parameter eg: 'category' | 'price' etc
 function sortList(sortingParameter)
+{
+
+}
 
 //return list of items by category eg: 'Fruit' | 'Appliance'
 function selectByCatergory(category)
+{
+
+}
