@@ -1,53 +1,72 @@
-data = [
+const sampleData = [
   ['apple', 'Fruit', 'isEdible', 40],
   ['Lays', 'Processed Food', 'isEdible', 10],
   ['Pen', 'Stationary', 'isNotEdible', 11],
   ['Book', 'Stationary', 'isNotEdible', 111],
-  ['Banana', 'fruit', 'isEdible', 14],
+  ['Banana', 'Fruit', 'isEdible', 14],
   ['Peanut Butter', 'Processed Food', 'isEdible', 200],
   ['Oven', 'Appliance', 'isNotEdible', 1300],
   ['Air Conditioner', 'Applicance', 'isNotEdible', 13300],
   ['Drill', 'Power Tool', 'isNotEdible', 2200],
 ];
 
-
-// Create a shopping items
+// Create a list of items
 // result = [ { name: 'apple', category: 'Fruit', isEdible: true, price: 40 }, ... ]
-function createListOfObjects(data) {
-  var listOfObjects = [];
-  var a={
-    name:null,
-    category:null,
-   isEdible:null,
-   price:0
-    
+function createListOfObjects(sampleData) {
+    const result = sampleData.map(entry => {
+      const [name, category, edibility, price] = entry;
+      return {
+        name,
+        category,
+        isEdible: edibility === 'isEdible',
+        price
+      }
+    });
+    return result;
+
   }
   
-  for(var i=0;i<data.length;i++)
+ 
+  
+  
+  function sortListOfObjectsByField(sampleData1,field)
   {
-    a.name= data[i][0];
-    a.category=data[i][1];
-    a.isEdible=data[i][2];
-    a.price=data[i][3];
-    listOfObjects[i]=a;
-  //var a=['apple','Lays','Pen','Book','Banana','Peanut Butter','Oven','Air Conditioner','Drill'];
-}
-console.log(listOfObjects);
+    const result = sampleData1.sort((a, b) => (a[field] > b[field]) ? 1 : (a[field] < b[field]) ? -1 : 0);
+    return result;
+
+     }
 
 
-}
+/* sort by given field. Sorting field eg: 'category' | 'price' etc
+* sample input: createListOfObjects(sampleData), 'price'
+* output for sample input:
+* [
+*   { name: 'Lays', category: 'Processed Food', isEdible: true, price: 10 },
+*   { name: 'Pen', category: 'Stationary', isEdible: false, price: 11 },
+*   { name: 'Banana', category: 'Fruit', isEdible: true, price: 14 },
+*   { name: 'apple', category: 'Fruit', isEdible: true, price: 40 },
+*   { name: 'Book', category: 'Stationary', isEdible: false, price: 111 },
+*   ...
+*   ...
+* ]
+*/ 
 
-
-createListOfObjects(data);
-
-//sort by given parameter. sorting Parameter eg: 'category' | 'price' etc
-function sortList(sortingParameter)
+function selectByCatergory(list,field) 
 {
-
+        let output=sampleData1.filter(function(obj)
+          {
+                if(obj.category===field)
+                {
+                  return obj;
+                }
+          });
+          return output;
 }
 
-//return list of items by category eg: 'Fruit' | 'Appliance'
-function selectByCatergory(category)
-{
 
-}
+console.log(createListOfObjects(sampleData));
+const sampleData1 = createListOfObjects(sampleData);
+console.log("-------------------------------------------------------------------");
+console.log(sortListOfObjectsByField(sampleData1, 'price'));
+console.log("-------------------------------------------------------------------");
+console.log(selectByCatergory(sampleData1,'Fruit'));
