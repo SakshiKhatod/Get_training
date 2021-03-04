@@ -53,8 +53,8 @@ function sortListOfObjectsByField(objList, field) {
  * ]
  */
 
-function selectByCatergory(objList, field) {
-  const result = objList.filter(entry => entry.category === field);
+function selectByCatergory(objList, category) {
+  const result = objList.filter(entry => entry.category === category);
   return result;
 }
 
