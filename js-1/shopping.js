@@ -70,3 +70,31 @@ console.log("-------------------------------------------------------------------
 console.log(sortListOfObjectsByField(sampleData1, 'price'));
 console.log("-------------------------------------------------------------------");
 console.log(selectByCatergory(sampleData1,'Fruit'));
+/* sort by given field. Sorting field eg: 'category' | 'price' etc
+* sample input: createListOfObjects(sampleData), 'price'
+* output for sample input:
+* [
+*   { name: 'Lays', category: 'Processed Food', isEdible: true, price: 10 },
+*   { name: 'Pen', category: 'Stationary', isEdible: false, price: 11 },
+*   { name: 'Banana', category: 'Fruit', isEdible: true, price: 14 },
+*   { name: 'apple', category: 'Fruit', isEdible: true, price: 40 },
+*   { name: 'Book', category: 'Stationary', isEdible: false, price: 111 },
+*   ...
+*   ...
+* ]
+*/ 
+function sortListOfObjectsByField(objList, field) {}
+
+/* return list of items of given category eg: 'Fruit' | 'Appliance'
+ * sample input: objList, 'Fruit'
+ * output for sample input:
+ *  [ 
+ *    { name: 'apple', category: 'Fruit', isEdible: true, price: 40 },
+ *    { name: 'Banana', category: 'Fruit', isEdible: true, price: 14 },
+ * ]
+ */
+function selectByCatergory(category) {}
+
+const list = createListOfObjects(sampleData);
+console.log(sortListOfObjectsByField(list, 'price'));
+console.log(selectByCatergory(list, 'Fruit'));
