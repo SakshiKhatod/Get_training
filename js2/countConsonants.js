@@ -11,6 +11,19 @@
  * eg: input: "bacd aio palleted"
  *     output: { b: 1, c: 1, d: 3, p: 1, l: 2, t:1}
  */
-function countConsonants(sentence) {}
+function countConsonants(sentence) {
+    const consonantArray=sentence.split('')
+    .filter(e=>e.match(/[bcdfghjklmnpqrstuvwxyz]/g))
+    .reduce((a, e) => {
+        if(a[e] = a[e])
+        {a[e]=a[e] + 1} 
+        else{ a[e]=1} 
+        //console.log(a[e]);
+        return a },{});
+console.log("Occurence of consonants in the sentence :",consonantArray);
+
+}
+countConsonants("bacd aio palleted");
+countConsonants('dear dead damsel in distress');
 
 module.exports = countConsonants;
