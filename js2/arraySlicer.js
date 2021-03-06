@@ -4,6 +4,6 @@
  * @param {Array} array
  * @param {Number} length
  */
-function sliceArray(array, length) {}
+function sliceArray(...args) {}
 
 module.exports = sliceArray;

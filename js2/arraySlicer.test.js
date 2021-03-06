@@ -9,14 +9,13 @@ test('should slice array by given length and return array of arrays', () => {
 });
 
 test('should throw error for invalid input', () => {
-  const array = [];
-  expect(sliceArray([], 3)).toThrow(
+  expect(() => sliceArray([], 3)).toThrow(
     'Invalid Array, expected array length of atleast 1',
   );
-  expect(sliceArray([1, 3], 0)).toThrow(
+  expect(() => sliceArray([1, 3], 0)).toThrow(
     'Invalid Length, expected a positive integer, received 0',
   );
-  expect(sliceArray([1, 3], -2)).toThrow(
+  expect(() => sliceArray([1, 3], -2)).toThrow(
     'Invalid Length, expected a positive integer, received -2',
   );
 });
