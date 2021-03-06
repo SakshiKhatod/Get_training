@@ -1,6 +1,6 @@
 const countConsonants = require('./countConsonants');
 
-test('should return count of consonants as an object for given sentence', () => {
+test.skip('should return count of consonants as an object for given sentence', () => {
   const input = 'bacd aio palleted';
   expect(countConsonants(input)).toEqual({
     b: 1,

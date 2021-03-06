@@ -13,13 +13,13 @@
  */
 function countConsonants(sentence) {
     const consonantArray=sentence.split('')
-    .filter(e=>e.match(/[bcdfghjklmnpqrstuvwxyz]/g))
-    .reduce((a, e) => {
-        if(a[e] = a[e])
-        {a[e]=a[e] + 1} 
-        else{ a[e]=1} 
-        //console.log(a[e]);
-        return a },{});
+    .filter(char=>char.match(/[bcdfghjklmnpqrstuvwxyz]/g))
+    .reduce((acc, char) => {
+        if(acc[char] = acc[char])
+        {acc[char]=acc[char] + 1} 
+        else{ acc[char]=1} 
+       
+        return acc },{});
 console.log("Occurence of consonants in the sentence :",consonantArray);
 
 }

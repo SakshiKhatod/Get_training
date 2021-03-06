@@ -14,6 +14,10 @@
 //    return slicedArray;
 //    )
 function sliceArray(array, length) {
+    if(!array.length)
+    {
+        throw new Error("Invalid Length");
+    }
     const slicedArray=[];
     let pointer = 0, sliceArr = [], len = array.length;
   while (pointer < len) {
@@ -21,8 +25,5 @@ function sliceArray(array, length) {
   }
   return slicedArray;
 }
-
- console.log(sliceArray([1, 2, 3, 4, 5, 6, 7],3))
- console.log(sliceArray([1, 2, 3], 4))
 
 module.exports = sliceArray;
