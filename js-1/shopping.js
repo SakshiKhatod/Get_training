@@ -31,7 +31,7 @@ function createListOfObjects(sampleData) {
   
   function sortListOfObjectsByField(sampleData1,field)
   {
-    const result = sampleData1.sort((a, b) => (a[field] > b[field]) ? 1 : (a[field] < b[field]) ? -1 : 0);
+    const result = sampleData1.sort((a, b) => (a.field > b.field) ? 1 : (a.field < b.field) ? -1 : 0);
     return result;
 
      }
