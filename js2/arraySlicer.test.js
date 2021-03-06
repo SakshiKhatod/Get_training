@@ -13,10 +13,10 @@ test.skip('should throw error for invalid input', () => {
   expect(sliceArray([], 3)).toThrow(
     'Invalid Array, expected array length of atleast 1',
   );
-  expect(sliceArray([1, 3], 0)).toThrow(
+  expect(() => sliceArray([1, 3], 0)).toThrow(
     'Invalid Length, expected a positive integer, received 0',
   );
-  expect(sliceArray([1, 3], -2)).toThrow(
+  expect(() => sliceArray([1, 3], -2)).toThrow(
     'Invalid Length, expected a positive integer, received -2',
   );
 });
