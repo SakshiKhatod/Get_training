@@ -6,26 +6,23 @@
  */
 function sliceArray(array, length) {
     if(array.length <= 0 || length <= 0) {
-        console.log("Invalid lenght");
+        throw new Error("Invalid lenght");
     }
-    else {
-        const result = [];
-        let i = 0;
-        while(i < array.length) {
-            result.push(array.slice(i, i + length));
-            i = i  + length;
-        }
-        return result;
+    const result = [];
+    let i = 0;
+    while(i < array.length) {
+        result.push(array.slice(i, i + length));
+        i = i  + length;
     }
-    return;
+    return result;
 }
 
-console.log("Sliced Array - ", sliceArray([1, 2, 3, 4, 5, 6, 7], 3));
-console.log("Sliced Array - ", sliceArray([1, 2, 3, 4, 5, 6, 7], 2));
-console.log("Sliced Array - ", sliceArray([1, 2, 3, 4, 5, 6, 7], 4));
-console.log("Sliced Array - ", sliceArray([1, 2, 3], 4));
-console.log("Sliced Array - ", sliceArray([], 3));
-console.log("Sliced Array - ", sliceArray([1, 3], 0));
-console.log("Sliced Array - ", sliceArray([1, 3], -2));
+// console.log("Sliced Array - ", sliceArray([1, 2, 3, 4, 5, 6, 7], 3));
+// console.log("Sliced Array - ", sliceArray([1, 2, 3, 4, 5, 6, 7], 2));
+// console.log("Sliced Array - ", sliceArray([1, 2, 3, 4, 5, 6, 7], 4));
+// console.log("Sliced Array - ", sliceArray([1, 2, 3], 4));
+// console.log("Sliced Array - ", sliceArray([], 3));
+// console.log("Sliced Array - ", sliceArray([1, 3], 0));
+// console.log("Sliced Array - ", sliceArray([1, 3], -2));
 
 module.exports = sliceArray;

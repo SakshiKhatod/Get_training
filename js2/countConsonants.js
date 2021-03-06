@@ -12,25 +12,13 @@
  *     output: { b: 1, c: 1, d: 3, p: 1, l: 2, t:1}
  */
 function countConsonants(sentence) {
-    const find = /[bcdfghjklmnpqrstvwxyz]/g;
-    const matched = sentence.match(find);
-    let count = 1;
-    const reducer = (accumulator, currentVal) => {
-        console.log("Accumulator", accumulator);
-        console.log("CurrentVal", currentVal);
-        if(accumulator === currentVal) {
-            count += 1;
-            console.log("Count in if", count);
-            // accumulator = {accumulator, count};
-            return accumulator;
-        }
-        count = 1;
-        console.log("Count in else", count);
-        return accumulator;
-    }
-    console.log("Matched", matched.reduce(reducer));
-    const result = Object.assign({}, matched);
-    return result;
+    const isConsonantRegex = /[bcdfghjklmnpqrstvwxyz]/g;
+    const consonant = sentence.match(isConsonantRegex);
+    const consonantCountMap = consonant.reduce((acc, char) => {
+        if(acc[char]) acc[char] += 1;
+        else acc[char] = 1;
+        return acc;
+    }, {});
+    return consonantCountMap;
 }
-console.log(countConsonants('ayehayeiiiihmn'));
 module.exports = countConsonants;
