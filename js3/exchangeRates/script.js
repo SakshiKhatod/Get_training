@@ -1,10 +1,12 @@
 function fetchfun() {
-    fetch("https://api.exchangeratesapi.io/latest")
+    fetch("https://api.exchangeratesapi.io/latest?base=USD")
     .then(response => response.json())
     .then(data => {
-        document.getElementById('para').innerHTML += data.rates.USD + " USD" + " = " + data.rates.INR + " INR";
+        const newPara = document.createElement("p");
+        const newContent = document.createTextNode(data.rates.USD + " USD" + " = " + data.rates.INR + " INR");
+        newPara.appendChild(newContent);
+        const currEle = document.getElementById('get-rate')
+        currEle.insertAdjacentElement('afterend', newPara);
     });
 }
 
-// const newBr = document.createElement("br");
-// document.getElementById("para").innerHTML += newBr;

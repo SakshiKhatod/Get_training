@@ -1,9 +1,9 @@
-function acronymize(string) {
-    const splitOnSpace = string.split(" ");
-    const removeAnd = splitOnSpace.filter(entry => entry != "and");
-    const acronyme = removeAnd.reduce((acc, curr) => {
+function acronymize(sentense) {
+    const words = sentense.split(" ");
+    const filteredWords = words.filter(entry => entry != "and");
+    const acronym = filteredWords.reduce((acc, curr) => {
         return acc = acc + curr[0];
     }, '');
-    return acronyme.toUpperCase();
+    return acronym.toUpperCase();
 }
 module.exports = acronymize;

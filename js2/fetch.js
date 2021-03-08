@@ -16,3 +16,34 @@
 // });
 // console.log("Name -", sum);
 
+
+// function add(...args) {
+//     return args.reduce((acc, curr) => {
+//         return acc = acc + curr;
+//     });
+// }
+
+// console.log("Addition", add(1, 2, 4, 7, 9, 26));
+// console.log("Addition", add('go', 'od', 1));
+
+
+
+// const game = {
+//     name: 'Hockey',
+//     type: 'outdoor',
+//     stick: 'Graphite'
+// }
+
+// const { name, ...rest} = game;
+// console.log(name);
+// console.log(rest);
+
+
+
+
+function doSomething({name, value, sum}) {
+    console.log(name);
+    return sum = sum / value;
+}
+
+console.log("Hey!", doSomething({value: 10, name: 'Teju', sum: 100}));
