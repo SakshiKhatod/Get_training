@@ -21,6 +21,7 @@ function createListOfObjects(data) {
     };});
   return list_obj;
 }
+function createListOfObjects(data) {}
 
 /* sort by given field. Sorting field eg: 'category' | 'price' etc
 * sample input: createListOfObjects(sampleData), 'price'
@@ -41,6 +42,7 @@ function sortListOfObjectsByField(objList, field) {
 
   
 }
+function sortListOfObjectsByField(objList, field) {}
 
 /* return list of items of given category eg: 'Fruit' | 'Appliance'
  * sample input: objList, 'Fruit'
@@ -66,3 +68,8 @@ console.log("Sorted through category Stationary",selectByCatergory(list, 'Statio
 console.log("Sorted through category Appliance",selectByCatergory(list, 'Appliance'),"\n");
 
    
+function selectByCatergory(category) {}
+
+const list = createListOfObjects(sampleData);
+console.log(sortListOfObjectsByField(list, 'price'));
+console.log(selectByCatergory(list, 'Fruit'));
