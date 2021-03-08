@@ -1,3 +1,5 @@
-function filter(...args) {}
+function filter(array,fun) {
+    return array.filter(fun)
+}
 
 module.exports = filter;
