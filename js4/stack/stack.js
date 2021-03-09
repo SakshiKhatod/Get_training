@@ -1,11 +1,14 @@
 function Stack(...args) {
-    this.items = [...args]; 
-    return this.items;
+    this.items = [];
+    this.bound = args;
 }
 
 Stack.prototype.push = function(value) {
-    this.items.push(value);
-    return;
+    if(this.bound.length === 0 || this.bound > this.items.length) {
+        this.items.push(value);
+        return;
+    }
+    throw 'Stack overflow, limit reached';
 }
 
 Stack.prototype.peek = function() {
@@ -16,30 +19,11 @@ Stack.prototype.peek = function() {
     return null;
 }
 
-// Stack.prototype.dummy = function() {
-//     return 0;
-// }
-
 Stack.prototype.pop = function() {
     if(this.items.length === 0) {
         return(null);
     }
     return this.items.pop();
 }
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-console.log(stack.pop());
-stack.push(3);
-console.log(stack);
-// console.log(stack.dummy());
-console.log(stack.peek());
 
-// console.log(stack.pop());
-// console.log(stack.pop());
-// console.log(stack.pop());
-// console.log(stack.pop());
-// console.log(stack.peek());
-// console.log("peek", stack.peek());
-// console.log(stack);
 module.exports = Stack;
