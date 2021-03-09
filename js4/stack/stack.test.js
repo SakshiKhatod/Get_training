@@ -12,7 +12,7 @@ describe('testing stack', () => {
     expect(stack.peek()).toBe(3);
   });
 
-  test('should push items into stack and pop in LIFO order', () => {
+  test.skip('should push items into stack and pop in LIFO order', () => {
     const stack = new Stack();
 
     stack.push(1);
@@ -29,7 +29,7 @@ describe('testing stack', () => {
     expect(stack.pop()).toBe(null);
   });
 
-  test('should be able to define stack size', () => {
+  test.skip('should be able to define stack size', () => {
     const stack = new Stack(2);
 
     stack.push(1);
