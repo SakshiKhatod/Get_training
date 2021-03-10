@@ -6,7 +6,7 @@ describe('test promisify', () => {
     const readFilePromise = promisify(fs.readFile);
     const validFilePath = './js5/promisify/data.txt';
 
-    return expect(
+    return expect( 
       readFilePromise(validFilePath).then(data => data.toString()),
     ).resolves.toBe('Hey there, I am text');
   });
