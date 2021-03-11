@@ -1,17 +1,11 @@
-const util = require('util');
-const promisify = (...args) => {
-    return util.promisify(...args);
+const promisify = fn => (...args) => {
+    const promise = new Promise((resolve, reject) => {
+        fn(...args, (err, data) => {
+            if(err) reject(err);
+            resolve(data);
+        });
+    });
+    return promise;
 };
 
 module.exports = promisify;
-
-
-// const promise = new Promise((resolve, reject) => {
-    //     fs.readFile('./js5/promisify/data.txt', (err, data) => {
-    //         if(err) {
-    //             resolve('Failed to read file');
-    //         }
-    //         resolve(data);
-    //     });
-    // });
-    // return promise;
