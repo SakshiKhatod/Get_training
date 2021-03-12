@@ -1,5 +1,5 @@
-function concat(...args){
-const concatenatedString = args.reduce((acc,currStr)=>
+function concat(...String){
+const concatenatedString = String.reduce((acc,currStr)=>
 {
     return acc + currStr;
 })
