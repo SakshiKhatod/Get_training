@@ -1,4 +1,4 @@
-consonst sliceArray = require('./arraySlicer');
+const sliceArray = require('./arraySlicer');
 
 test('should slice array by given length and return array of arrays', () => {
   const array = [1, 2, 3, 4, 5, 6, 7];

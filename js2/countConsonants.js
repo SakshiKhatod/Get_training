@@ -13,13 +13,21 @@
  *     output: { b: 1, c: 1, d: 3, p: 1, l: 2, t:1}
  */
 function countConsonants(sentence) {
-    const isConsonantRegex = /[bcdfghjklmnpqrstvwxyz]/g;
-    const consonant = sentence.match(isConsonantRegex);
-    const consonantCountMap = consonant.reduce((acc, char) => {
+    const regex_consonant = /[bcdfghjklmnpqrstvwxyz]/g;
+    const string_consonant = sentence.match(regex_consonant);
+    const consonantCountMap = string_consonant.reduce((acc, char) => {
         if(acc[char]) acc[char] += 1;
         else acc[char] = 1;
         return acc;
     }, {});
     return consonantCountMap;
+    //const count = sentence.match(/[bcdfghjklmnpqrstvwxyz]/g).length;
+    //return count;
+    //console.log(count);
+
 }
+//countConsonants("Sakshi");
 module.exports = countConsonants;
+
+
+
