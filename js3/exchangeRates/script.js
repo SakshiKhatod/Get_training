@@ -1,3 +1,4 @@
+//----------
 function fetchAPI() {
     fetch("https://api.exchangeratesapi.io/latest?base=USD")
         .then(response => response.json())

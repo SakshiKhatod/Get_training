@@ -1,3 +1,4 @@
+//----------------------------------------------------------------
 function acronymize(string) {
     const word = string.split(" ");
     const removeAnd = word.filter(entry => entry != "and");
@@ -5,6 +6,6 @@ function acronymize(string) {
         return acc = acc + curr[0];
     }, '');
     return result.toUpperCase();
-}
-
-module.exports = acronymize;
+  }
+  
+  module.exports = acronymize;

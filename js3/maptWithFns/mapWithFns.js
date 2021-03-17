@@ -1,3 +1,4 @@
+//----------
 function map(array, fun) {
     return array.map(fun);
 }
