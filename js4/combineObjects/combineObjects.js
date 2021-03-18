@@ -4,6 +4,10 @@
 //
 // Question: what happens when you spread `undefined`? What about null?
 
-function combineObjects(...args) {}
+function combineObjects(a, b, n) {
+    const objectCombine = { ...a, ...b, ...n }
+    return objectCombine;
+
+}
 
 module.exports = combineObjects;
