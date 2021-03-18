@@ -1,11 +1,17 @@
-//----------------------------------------------------------------
-function acronymize(string) {
-  const word = string.split(" ");
-  const removeAnd = word.filter(entry => entry != "and");
-  const result = removeAnd.reduce((acc, curr) => {
-      return acc = acc + curr[0];
-  }, '');
-  return result.toUpperCase();
-}
+<!DOCTYPE html>
+<html>
 
-module.exports = acronymize;
+<head>
+  <title>USD - INR</title>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <button id="get-rate" onclick="fetchAPI()">
+    get USD - INR currency rate
+  </button>
+  <p id="demo"></p>
+
+</body>
+
+</html>
