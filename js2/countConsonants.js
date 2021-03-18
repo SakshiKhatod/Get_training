@@ -16,7 +16,7 @@ function countConsonants(sentence) {
     const regex_consonant = /[bcdfghjklmnpqrstvwxyz]/g;
     const string_consonant = sentence.match(regex_consonant);
     const consonantCountMap = string_consonant.reduce((acc, char) => {
-        if(acc[char]) acc[char] += 1;
+        if (acc[char]) acc[char] += 1;
         else acc[char] = 1;
         return acc;
     }, {});
