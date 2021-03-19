@@ -34,8 +34,8 @@
     transform-origin:bottom;
 }
 @-webkit-keyframes move {
-    0% {
-        transform:rotate(-90deg);
+    5% {
+        transform:rotate(10deg);
     }
     50% {
         transform:rotate(90deg);

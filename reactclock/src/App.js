@@ -20,7 +20,8 @@ class App extends React.Component{
          > - </button>
        </div>
        {[...Array(this.state.noOfClock).keys()].map(()=>(
-          <Clock label="secs"/>  
+          <Clock label="secs"
+          > </Clock>  
        ))}
       
        </div>
