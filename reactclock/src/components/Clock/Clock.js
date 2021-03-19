@@ -23,6 +23,9 @@ class Clock extends React.Component{
         return(
             <div className="Clock" >
                 {this.state.seconds}  {this.props.label || 'seconds'}     
+                <div id="logo">	<span class="speedometer"></span>
+	            <span class="needle"></span>
+                </div>
             </div>
         );
     }
