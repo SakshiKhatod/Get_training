@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Clock  from './components/Clock/Clock';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+ constructor(props){
+   super(props)
+   this.state = {
+     noOfClock: 0,
+   }
+ }
+
+ render(){
+   return(
+     <div className="App">
+       <div>
+         <button className="icon" onClick={()=>this.setState({ noOfClock: this.state.noOfClock + 1})}
+         > + </button>
+         <button className="icon" onClick={()=>this.setState({ noOfClock: Math.max(this.state.noOfClock - 1, 0)})}
+         > - </button>
+       </div>
+       {[...Array(this.state.noOfClock).keys()].map(()=>(
+          <Clock label="secs"/>  
+       ))}
+      
+       </div>
+       
+   );
+ }
 }
 
 export default App;
