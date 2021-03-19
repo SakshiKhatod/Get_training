@@ -18,13 +18,11 @@ class App extends React.Component{
          > + </button>
          <button className="icon" onClick={()=>this.setState({ noOfClock: Math.max(this.state.noOfClock - 1, 0)})}
          > - </button>
-       </div>
+       </div>  
        {[...Array(this.state.noOfClock).keys()].map(()=>(
-          <Clock label="secs"/>  
-       ))}
-      
-       </div>
-       
+          <Clock label="secs"></Clock>  
+       ))} 
+     </div>    
    );
  }
 }

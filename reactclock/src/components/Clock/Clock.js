@@ -21,9 +21,14 @@ class Clock extends React.Component{
     }
     render(){
         return(
+            <>
             <div className="Clock" >
                 {this.state.seconds}  {this.props.label || 'seconds'}     
+            <div id="logo">	<span className="speedometer"></span>
+            <span className="needle"></span>
             </div>
+            </div>
+          </>
         );
     }
 }
