@@ -40,7 +40,7 @@ function TodoApp() {
     setTaskList(newTaskList);
   };
 
-const handleFilter = () => {
+const handlePendingList = () => {
   let filtered = tasklist.filter(task => {
     return !task.isCompleted;
   });
@@ -60,7 +60,7 @@ return (
   <button className="add-btn" onClick={AddTask}>
     Add
   </button>
-  <button className="pending-btn" onClick={handleFilter}>Pending Task</button>
+  <button className="pending-btn" onClick={handlePendingList}>Pending Task</button>
   <br />
   {tasklist !== [] ? (
     <ul>
