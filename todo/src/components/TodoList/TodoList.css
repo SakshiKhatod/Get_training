@@ -1,0 +1,39 @@
+.TodoList {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.Delete {
+    min-height: 20px;
+    width: 24px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: thistle;
+    color: black;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    margin-left: 30%;
+    box-shadow: 5px 5px 15px -5px black;
+}
+
+.Checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.Edit {
+    min-height: 20px;
+    width: 24px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: thistle;
+    color: black;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    margin-left: 30%;
+    box-shadow: 5px 5px 15px -5px black;
+}
