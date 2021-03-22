@@ -1,0 +1,20 @@
+.App {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 100px;
+  border:  rgb(22, 160, 224); border-width:5px; border-style:solid;
+}
+
+.App .title {
+  font-size: 3rem;
+  padding: 0px 20px 0px 20px;
+  background-color: rgb(58, 197, 207);
+  border-radius: 0px;
+  border: 2px solid black;
+  align-self: center;
+  color: #1b1b1b;
+  font-family: 'Times New Roman', serif;
+}
