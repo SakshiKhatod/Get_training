@@ -1,0 +1,41 @@
+.Todo {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: left; */
+    /* align-items: center; */
+}
+
+.Delete {
+    float: right;
+    align-items: flex-end;
+    min-height: 20px;
+    width: 24px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: thistle;
+    color: black;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    /* margin-left: 30%; */
+    box-shadow: 5px 5px 15px -5px black;
+}
+
+.Checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.DeleteButton {
+    justify-content: flex-end;
+}
+
+.Checked {
+    text-decoration: line-through;
+    text-decoration-color: gray;
+    color: gray;
+}
+
+.NotChecked {
+    text-decoration: none;
+}

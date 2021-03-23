@@ -1,56 +1,80 @@
 import React, { useState } from 'react';
 import './App.css'
-import TodoList from './components/TodoList/TodoList';
+import Todo from './components/Todo/Todo';
+import Switch from 'react-switch'
 
 function App() {
-  const [TodoText, setTodoText] = useState('');
-  const [TodoArray, setTodoArray] = useState([]);
+  const [todoText, setTodoText] = useState('');
+  const [todos, setTodos] = useState([]);
+  const [switchState, setSwitchState] = useState(false);
 
   const handleTodoText = (e) => {
     setTodoText(e.target.value);
   };
 
   const addTodo = () => {
-    setTodoArray((prevTodos) => {
-      return [...prevTodos, TodoText];
+    const todo = { value: todoText, isChecked: false,};
+    setTodos((prevTodos) => {
+      return [...prevTodos, todo];
     });
     setTodoText('');
   };
 
-  const deleteTodo = (id) => {
-    console.log('deleted');
-    setTodoArray((prevTodos) => {
-      return prevTodos.filter((todo, index) => {
-        return index !== id;
+  const deleteTodo = (indexToDelete) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((_, index) => {
+        return index !== indexToDelete;
       });
     });
   };
 
-  const checkTodo = (id) => {
-    setTodoArray((prevTodos) => {
+  const checkTodo = (indexToCheck) => {
+    setTodos((prevTodos) => {
       return prevTodos.map((todo, index) => {
-        if(index === id) {
-          return <del>{todo}</del>
+        if(index === indexToCheck) {
+          const check = todo.isChecked;
+          todo = {value: todo.value, isChecked: !check,}
+          return todo;
         }
         return todo;
       });
     });
   };
 
-  const editTodo =(id) => {
+  const editTodo = (indexToEdit) => {
     handleTodoText();
-    setTodoArray((prevTodos) => {
-      prevTodos.splice(id, 0, TodoText);
+    setTodos((prevTodos) => {
+      prevTodos.splice(indexToEdit, 0, todoText);
     });
   };
+
+  const handleSwitchChange = () => {
+    setSwitchState(!switchState);
+    if(!switchState) {
+      setTodos((prevTodos) => {
+        const pendingTodos = prevTodos.filter(todo => todo.isChecked === false);
+        return pendingTodos;
+      });
+    }
+    else {
+      return todos;
+    }
+  }
 
   return (
     <div className="App">
       <div className="Center">
         <h1>My Todo List</h1>
+        <label className="Toggle">
+          <Switch
+            checked={switchState}
+            onChange={handleSwitchChange} 
+          />
+          <span>Pending</span>
+        </label>
         <ul className="List">
-          {TodoArray.map((todo, index) => {
-            return <TodoList 
+          {todos.map((todo, index) => {
+            return <Todo 
               text={todo}
               key={index}
               id={index}
@@ -61,10 +85,12 @@ function App() {
         </ul>
         <br></br>
         <input 
-          type="text" 
+          type="text"
+          minLength="3"
+          maxLength="10"
           placeholder="Your text here" 
           onChange={handleTodoText}
-          value={TodoText}/>
+          value={todoText}/>
         <button onClick={addTodo}>+</button>
       </div>
     </div>
