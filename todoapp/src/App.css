@@ -1,18 +1,22 @@
+
 .App {
   display: flex;
   flex-flow: column nowrap;
-  margin-top: 50px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-top: 100px;
+  margin-left: 440px;
+  margin-right: 440px;
   margin-bottom: 100px;
+  border-radius: 30px;
+  background-color: rgb(107, 181, 194);
   border:  rgb(22, 160, 224); border-width:5px; border-style:solid;
 }
 
 .App .title {
-  font-size: 3rem;
+  font-size: 2rem;
+  margin-top: 5px;
   padding: 0px 20px 0px 20px;
   background-color: rgb(58, 197, 207);
-  border-radius: 0px;
+  border-radius: 10px;
   border: 2px solid black;
   align-self: center;
   color: #1b1b1b;

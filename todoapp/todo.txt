@@ -1,0 +1,28 @@
+// const editables = document.querySelectorAll('#content,#li');
+
+// // save edits
+// editables.forEach(el => {
+//   el.addEventListener("", () => {
+//     localStorage.setItem("dataStorage-" + el.id, el.innerHTML);
+//   })
+// });
+
+// // once on load
+// for (var key in localStorage) {
+//   if (key.includes("dataStorage-")) {
+//     const id = key.replace("dataStorage-","");
+//     document.querySelector("#" + id).innerHTML = localStorage.getItem(key);
+//   }
+// }
+.............completed..........
+const taskCompleted = (e, id) => {
+    e.preventDefault();
+    const element = tasklist.findIndex((elem) => elem.id === id);
+    const newTaskList = [...tasklist];
+    newTaskList[element] = {
+      ...newTaskList[element],
+      isCompleted: !tasklist[element].isCompleted,
+    }; 
+    setTaskList(newTaskList);
+  };
+  .................................

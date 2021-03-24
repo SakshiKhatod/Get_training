@@ -5,16 +5,12 @@ import "./TodoApp.css";
 function TodoApp() {
   const [task, setTask] = useState("");
   const [tasklist, setTaskList] = useState([]);
-  // const [todoEditing, setTodoEditing] = React.useState(null);
-  // const [editingText, setEditingText] = React.useState("");
-
-
   const handleChange = (e) => {
     setTask(e.target.value);
   };
 
   const AddTask = () => {
-    if ( task !== "" ) {
+    if (task !== "") {
       const taskDetails = {
         id: Math.floor(Math.random() * 1000),
         value: task,
@@ -29,20 +25,20 @@ function TodoApp() {
     setTaskList(tasklist.filter((t) => t.id !== id));
   };
 
-  const taskCompleted = (e, id) => {
-    e.preventDefault();
-    const element = tasklist.findIndex((elem) => elem.id === id);
-    const newTaskList = [...tasklist];
-    newTaskList[element] = {
-      ...newTaskList[element],
-      isCompleted: true,
-    }; 
-    setTaskList(newTaskList);
-  };
+  const handleCheckboxChange=(id)=>{
+    const newTodoList=[...tasklist].map(task=>{
+        if(task.id===id)
+          return {...task,isCompleted:!task.isCompleted}
+      return task;
+      })
+      setTaskList(newTodoList)
 
-const handlePendingList = () => {
-  let filtered = tasklist.filter(task => {
-    return !task.isCompleted;
+  }
+
+  const handlePendingList = () => {
+    setTaskList(tasklist)
+    let filtered = tasklist.filter(task => {
+      return !task.isCompleted;
   });
   setTaskList(filtered);
 }
@@ -50,51 +46,38 @@ const handlePendingList = () => {
 
 return (
   <div className="todo">
+     <button className="pending-btn" onClick={handlePendingList}>Pending Task</button>
   <input
     type="text"
     name="text"
     id="text"
+    maxLength="35"
     onChange={(e) => handleChange(e)}
     placeholder="Add task here..."
   />
   <button className="add-btn" onClick={AddTask}>
-    Add
+    +
   </button>
-  <button className="pending-btn" onClick={handlePendingList}>Pending Task</button>
   <br />
   {tasklist !== [] ? (
     <ul>
-      {tasklist.map((t) => (
-        <li contentEditable="true" className={t.isCompleted ? "crossText" : "listitem"}>
-          {t.value}
-          <button className="completed" onClick={(e) => taskCompleted(e, t.id)}>
-            Complete
-          </button>
+      {tasklist.map((t) => (   
+        <li className={t.isCompleted ? "crossText" : "listitem"}>
+          {window.localStorage.setItem(t,'#content')}
+          <input classname ="check" type="checkbox"
+           id="isCompleted"
+           style={{margin:"0 10px"}}
+           checked={t.isCompleted}
+           onChange={()=>handleCheckboxChange(t.id)}/> 
+          <span id="content" contentEditable="true" style={{width: '100%'}}>{t.value}</span> 
           <button className="delete" onClick={(e) => deletetask(e, t.id)}>
-            Delete
+           X
           </button>
         </li>
       ))}
     </ul>
-   ) : null}
+  ) : null}
 </div>
  );
 }
-
-// const handleCheck=(id)=>
-  // {
-  //   if(task.isCompleted)
-  //   return  <span style={{textDecoration:"line-through"}}>{task.value}</span> ;
-  //   hanldeCheckboxChange(id)
-  // }
-  // const hanldeCheckboxChange=(id)=>{
-  //   const newTodoList=tasklist.map(task=>{
-  //       if(task.id===id)
-  //         return {...tasklist,isCompleted:!task.isCompleted}
-  //     return task;
-  //     })
-  //     setTaskList(newTodoList)
-
-  // }
-
 export default TodoApp;

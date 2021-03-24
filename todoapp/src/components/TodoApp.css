@@ -1,97 +1,103 @@
 
 .todo {
-    align-self: center;
-    color: white;
-  }
+  align-self: center;
+   color: white;
   
-  .todo .crossText {
-    text-decoration: line-through;
-    text-decoration-color: red;
-    color: gray;
-  }
-  
-  .todo input {
-    background: transparent;
-    border: 1px solid black;
-    color: black;
-    margin-bottom: 5px;
-    min-width: 200px;
-    margin-top: 40px;
-    padding: 5px;
-    font-size: 1rem;
-  }
-  .todo .pending-btn {
-    margin-top: 50px;
-  margin-left: 100px;
+ } 
+ .todo .crossText {
+   text-decoration: line-through;
+   text-decoration-color: red;
+   color: gray;
+   word-wrap: break-word; 
+ }
+ .todo input {
+   background: transparent;
+   border: 1px solid black;
+   color: black;
+   margin-bottom: 50px;
+   min-width: 200px;
+   margin-top: -100px;
+   margin-left: 100px;
+   padding: 5px;
+   font-size: 1rem;
+ }
+ .todo .pending-btn {
+  margin-top: 10px;
+  margin-left: 350px;
   margin-right: 100px;
-  margin-bottom: 100px;
-    color: blue;
-    padding: 10px;
-  }
-  .todo input::placeholder {
-    color: rgb(26, 24, 24);
-    font-size: 1.3rem;
-  }
+  margin-bottom: 5px;
+   color: blue;
+   padding: 7px;
+ }
+ .todo input::placeholder {
+   color: rgb(26, 24, 24);
+   font-size: 1.3rem;
+ }
+ .todo input:focus {
+   outline: none;
+   border: 2px solid black;
+ }
+ .todo .add-btn {
+   width: 50px;
+   padding: 5px;
+   border-radius: 30%;
+   color: black;
+   font-size: 2.3rem;
+   background-color: rgb(22, 160, 224);
+   border: none;
+   margin-left: 30px;
+   cursor: pointer;
+   border: 3px solid black;
+ }
+ .todo .add-btn:hover {
+   padding: 15px;
+   font-size: 1.5rem;
+ }
+ 
+ .todo ul {
+   margin-top: 30px;
+   font-size: 1rem;
+ }
+ .todo li .check{
+   color:black;
+ }
+ .todo .check{
+   padding-left: 50px;
+ }
+ .todo ul li {
+   list-style: none;
+   margin-bottom: 4px;
+   border: 2px solid black;
+   border-radius: 10px; 
+   padding-bottom: 5px; 
+   padding-left: 5px; 
+   padding-right: 5px;
+   margin-left: 60px;  
+   width: 350px; 
+   display: block;  
+   text-align: justify;
+   text-align: center ;
+   text-align-last: center;
+   color: black;
+ }
+ .todo ul li  .listitem .delete {
   
-  .todo input:focus {
-    outline: none;
-    border: 2px solid black;
-  }
-  
-  .todo .add-btn {
-    padding: 10px;
-    border-radius: 0%;
-    color: black;
-    font-size: 1.2rem;
-    background-color: rgb(22, 160, 224);
-    border: none;
-    margin-left: 10px;
-    cursor: pointer;
-    border: 3px solid black;
-  }
-  
-  .todo .add-btn:hover {
-    padding: 15px;
-    font-size: 1.5rem;
-  }
-  
-  .todo ul {
-    margin-top: 30px;
-    font-size: 1.5rem;
-  }
-  
-  .todo ul li {
-    list-style: none;
-    margin-bottom: 4px;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 5px;
-    margin-left: -100px;
-    background-color: rgb(236, 236, 236, 0.6);
-    font-family: "Permanent Marker", cursive;
-    color: black;
-  }
-  .todo ul li .delete {
-    margin-top: 5px;
-    float: right;
-    padding: 4px 10px 4px 10px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background-color: red;
-    color: white;
-  }
-  
-  .todo ul li .completed {
-    margin-top: 5px;
-    float: right;
-    padding: 4px 10px 4px 10px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background-color: green;
-    margin-left: 10px;
-    color: white;
-  }
+   float: right; 
+   padding: 4px 10px 4px 10px;
+   border-radius: 20px;
+   border: none;
+   cursor: pointer;
+   background-color: red;
+   color: black;
+ }
+ .todo ul li .completed {
+   margin-top: 5px;
+   float: right;
+   padding: 4px 10px 4px 10px;
+   border-radius: 20px;
+   border: none;
+   cursor: pointer;
+   background-color: green;
+   margin-left: 10px;
+   color: white;
+ }
