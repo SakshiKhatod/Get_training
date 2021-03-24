@@ -7,7 +7,7 @@ function App() {
   const [todoText, setTodoText] = useState('');
   const [todos, setTodos] = useState([]);
   const [switchState, setSwitchState] = useState(false);
-
+  
   const handleTodoText = (e) => {
     setTodoText(e.target.value);
   };
@@ -49,27 +49,13 @@ function App() {
   };
 
   const editTodo = (indexToEdit, editedTodo) => {
-    console.log(editedTodo);
-    console.log(indexToEdit);
-    // setTodoText(editedTodo);
-    // setTodos((prevTodos) => {
-    //   return [...prevTodos.slice(0, indexToEdit), editedTodo, ...prevTodos.slice(indexToEdit)];
-    // });
+    setTodos((prevTodos) => {
+      return [...prevTodos.slice(0, indexToEdit), editedTodo, ...prevTodos.slice(indexToEdit + 1)];
+    });
   };
 
   const handleSwitchChange = (checked) => {
     setSwitchState(checked);
-    if(checked) {
-      // const pendingTodos = todos.filter(todo => todo.isChecked === false);
-      // return pendingTodos;
-      setTodos((prevTodos) => {
-        const pendingTodos = prevTodos.filter(todo => todo.isChecked === false);
-        return pendingTodos;
-      });
-    }
-    else {
-      return todos;
-    }
   }
 
   return (
@@ -84,7 +70,14 @@ function App() {
           <span>Pending</span>
         </label>
         <ul className="List">
-          {todos.map((todo, index) => {
+          {todos
+          .filter(todo => {
+            if(switchState) {
+              return !todo.isChecked;
+            }
+            return true;
+          })
+          .map((todo, index) => {
             return <Todo 
               text={todo}
               key={index}
