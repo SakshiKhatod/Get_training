@@ -1,36 +1,26 @@
 import React from 'react';
 import './Todo.css'
 import PropTypes from 'prop-types';
-// import {maxlengthContentEditable} from 'maxlength-contenteditable';
 
 const Todo = (props) => {
-    if(props.text.isChecked) {
-        return <div className="Todo">
-            <input 
-                type="checkbox" 
-                className="Checkbox" 
-                onClick={() => {
-                    props.onCheck(props.id);
-                }}/>
-            <div className="Checked" contentEditable="true" data-max-length="10" data-min-length="3"> {props.text.value} </div>
-            <button 
-                className="Delete" 
-                onClick={() => {
-                    props.onSelect(props.id)
-                }}>
-            x
-            </button>
-        </div>
-    }
-
+    const taskClassName = props.text.isChecked ? "Checked" : "NotChecked";
     return <div className="Todo">
         <input 
+            checked={props.text.isChecked}
             type="checkbox" 
             className="Checkbox" 
             onClick={() => {
                 props.onCheck(props.id);
             }}/>
-        <div className="NotChecked" contentEditable="true" data-max-length="10" data-min-length="3"> {props.text.value} </div>
+        <div 
+            className={taskClassName}
+            contentEditable="true"
+            onInput={e => {
+                // console.log(e.target.innerHTML);
+                props.onEdit(props.id, e.target.innerHTML);
+            }}> 
+            {props.text.value}
+        </div>
         <button 
             className="Delete" 
             onClick={() => {
@@ -48,8 +38,8 @@ Todo.propTypes = {
     }),
     key: PropTypes.number,
     id: PropTypes.number,
-    onSelect: PropTypes.func,
-    onCheck: PropTypes.func
+    onSelect: PropTypes.func.isRequired,
+    onCheck: PropTypes.func.isRequired,
 }
 
 export default Todo;

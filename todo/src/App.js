@@ -20,6 +20,13 @@ function App() {
     setTodoText('');
   };
 
+  const handleKeyPress = (e) => {
+    const code = e.keyCode || e.which;
+    if(code === 13 && todoText !== '') {
+      addTodo();
+    }
+  }
+
   const deleteTodo = (indexToDelete) => {
     setTodos((prevTodos) => {
       return prevTodos.filter((_, index) => {
@@ -41,16 +48,20 @@ function App() {
     });
   };
 
-  const editTodo = (indexToEdit) => {
-    handleTodoText();
-    setTodos((prevTodos) => {
-      prevTodos.splice(indexToEdit, 0, todoText);
-    });
+  const editTodo = (indexToEdit, editedTodo) => {
+    console.log(editedTodo);
+    console.log(indexToEdit);
+    // setTodoText(editedTodo);
+    // setTodos((prevTodos) => {
+    //   return [...prevTodos.slice(0, indexToEdit), editedTodo, ...prevTodos.slice(indexToEdit)];
+    // });
   };
 
-  const handleSwitchChange = () => {
-    setSwitchState(!switchState);
-    if(!switchState) {
+  const handleSwitchChange = (checked) => {
+    setSwitchState(checked);
+    if(checked) {
+      // const pendingTodos = todos.filter(todo => todo.isChecked === false);
+      // return pendingTodos;
       setTodos((prevTodos) => {
         const pendingTodos = prevTodos.filter(todo => todo.isChecked === false);
         return pendingTodos;
@@ -87,11 +98,12 @@ function App() {
         <input 
           type="text"
           minLength="3"
-          maxLength="10"
+          maxLength="100"
           placeholder="Your text here" 
           onChange={handleTodoText}
+          onKeyPress={handleKeyPress}
           value={todoText}/>
-        <button onClick={addTodo}>+</button>
+        <button onClick={addTodo} disabled={todoText === ''}>+</button>
       </div>
     </div>
   )
